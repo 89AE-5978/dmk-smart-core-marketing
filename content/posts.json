@@ -4,209 +4,209 @@
     "tema": "esp32",
     "titulo": "O cérebro da sua automação",
     "subtitulo": "DMK Smart Core com ESP32-S3",
-    "legenda": "Todo sistema de automação precisa de um bom cérebro. No DMK Smart Core, ele é o ESP32-S3: processador dual-core com Wi-Fi e Bluetooth integrados, rápido e eficiente.\n\nÉ ele que lê sensores, aplica suas regras e aciona bombas, válvulas e cargas, tudo no próprio local."
+    "legenda": "🧠 O cérebro da sua automação tem nome: ESP32-S3.\n\nNo DMK Smart Core, ele lê os sensores, aplica as suas regras e aciona bombas, válvulas e cargas, tudo ali mesmo, no local.\n\n✅ Processador dual-core\n✅ Wi-Fi e Bluetooth integrados\n✅ Resposta rápida, sem depender da nuvem"
   },
   {
     "id": 2,
     "tema": "local",
     "titulo": "Funciona mesmo sem internet",
     "subtitulo": "Automação 100% local",
-    "legenda": "A internet caiu. E a automação? Continua funcionando.\n\nO DMK Smart Core processa tudo localmente, no próprio dispositivo. Suas regras não dependem de nuvem, de servidor externo nem de conexão para fazer o trabalho delas."
+    "legenda": "📶 A internet caiu. E a automação? Continua funcionando.\n\nO DMK Smart Core processa tudo no próprio dispositivo. Suas regras não dependem de nuvem, de servidor externo nem de conexão para fazer o trabalho delas.\n\n✅ Automação 100% local\n✅ Sem parar quando a conexão some\n✅ Mais confiança no dia a dia"
   },
   {
     "id": 3,
     "tema": "app",
     "titulo": "Tudo na palma da mão",
     "subtitulo": "Aplicativo DMK Smart Core",
-    "legenda": "Acompanhe o status, acione equipamentos e ajuste suas regras pelo aplicativo do DMK Smart Core.\n\nSimples de usar no dia a dia, sem precisar abrir quadro elétrico nem chamar ninguém para mudar uma configuração."
+    "legenda": "📱 Sua automação inteira na palma da mão.\n\nNo aplicativo do DMK Smart Core você acompanha o status, aciona equipamentos e ajusta as regras, sem abrir quadro elétrico e sem chamar ninguém.\n\n✅ Status em tempo real\n✅ Comandos com um toque\n✅ Regras ajustadas na hora"
   },
   {
     "id": 4,
     "tema": "regras",
     "titulo": "Se isso acontecer, faça aquilo",
     "subtitulo": "Você define, o Smart Core executa",
-    "legenda": "Automação de verdade é aquela que decide por você.\n\nCom as regras inteligentes do DMK Smart Core, você define condições e ações: se o nível baixar, liga a bomba; se encher, desliga. Se for horário de irrigação, abre a válvula. Você define, o Smart Core executa."
+    "legenda": "⚙️ Se isso acontecer, faça aquilo. Simples assim.\n\nCom as regras inteligentes do DMK Smart Core, você define condições e ações:\n\n💧 Nível baixou? Liga a bomba.\n🛑 Encheu? Desliga.\n🌱 Hora da irrigação? Abre a válvula.\n\nVocê define, o Smart Core executa."
   },
   {
     "id": 5,
     "tema": "agua",
     "titulo": "Gestão de água sem desperdício",
     "subtitulo": "Controle inteligente de reservatórios",
-    "legenda": "Água é recurso precioso e caro.\n\nO DMK Smart Core ajuda a controlar reservatórios, bombas e irrigação de forma automática, evitando transbordamentos, bomba ligada à toa e aquela surpresa da caixa vazia."
+    "legenda": "💧 Água é recurso precioso, e caro.\n\nO DMK Smart Core controla reservatórios, bombas e irrigação de forma automática para você usar cada gota com inteligência.\n\n✅ Sem transbordamentos\n✅ Sem bomba ligada à toa\n✅ Sem surpresa de caixa vazia"
   },
   {
     "id": 6,
     "tema": "local",
     "titulo": "Seus dados ficam com você",
     "subtitulo": "Processamento no próprio local",
-    "legenda": "Com o processamento local do DMK Smart Core, as informações da sua automação ficam na sua rede, e não espalhadas em servidores de terceiros.\n\nMais privacidade e mais independência para a sua casa ou empresa."
+    "legenda": "🔒 Seus dados ficam com você.\n\nCom o processamento local do DMK Smart Core, as informações da sua automação ficam na sua rede, e não espalhadas em servidores de terceiros.\n\n✅ Mais privacidade\n✅ Mais independência\n✅ Mais controle"
   },
   {
     "id": 7,
     "tema": "agua",
     "titulo": "Caixa d'água sob controle",
     "subtitulo": "Nível monitorado automaticamente",
-    "legenda": "Subir no telhado para conferir a caixa d'água? Isso pode ficar no passado.\n\nCom o DMK Smart Core, o nível do reservatório é monitorado e as ações acontecem de forma automática, conforme as regras que você definir."
+    "legenda": "🏠 Subir no telhado para conferir a caixa d'água? Isso ficou no passado.\n\nCom o DMK Smart Core, o nível do reservatório é monitorado e as ações acontecem sozinhas, conforme as regras que você definir.\n\n✅ Nível sempre sob controle\n✅ Acompanhamento pelo app\n✅ Bomba no automático"
   },
   {
     "id": 8,
     "tema": "regras",
     "titulo": "A bomba que se cuida sozinha",
     "subtitulo": "Liga e desliga na hora certa",
-    "legenda": "Bomba esquecida ligada gasta energia e desgasta o equipamento.\n\nNo DMK Smart Core, a bomba liga e desliga sozinha de acordo com o nível do reservatório e as suas regras. Menos preocupação, mais vida útil."
+    "legenda": "🔌 A bomba que se cuida sozinha.\n\nBomba esquecida ligada gasta energia e desgasta o equipamento. No DMK Smart Core, ela liga e desliga na hora certa, de acordo com o nível do reservatório e as suas regras.\n\n✅ Menos consumo de energia\n✅ Mais vida útil para a bomba\n✅ Zero preocupação"
   },
   {
     "id": 9,
     "tema": "agua",
     "titulo": "Irrigação na hora certa",
     "subtitulo": "Horários e condições automáticas",
-    "legenda": "Jardim, horta ou plantação: cada uma tem o seu horário ideal de rega.\n\nCom o DMK Smart Core, você programa a irrigação por horário e por condições, e ela acontece mesmo quando você não está por perto."
+    "legenda": "🌱 Cada planta tem a sua hora de beber água.\n\nJardim, horta ou plantação: com o DMK Smart Core você programa a irrigação por horário e por condições, e ela acontece mesmo quando você não está por perto.\n\n✅ Rega no horário ideal\n✅ Sem desperdício\n✅ Funciona sem internet"
   },
   {
     "id": 10,
     "tema": "local",
     "titulo": "Caiu a internet? Tudo segue",
     "subtitulo": "Independência de nuvem",
-    "legenda": "Muitos sistemas param quando a conexão cai. O DMK Smart Core, não.\n\nComo as regras rodam localmente no ESP32-S3, a automação continua trabalhando, com ou sem internet."
+    "legenda": "⚡ Muitos sistemas param quando a conexão cai. O DMK Smart Core, não.\n\nComo as regras rodam localmente no ESP32-S3, a automação continua trabalhando, com ou sem internet.\n\n✅ Independente da nuvem\n✅ Sem interrupções\n✅ Confiável de verdade"
   },
   {
     "id": 11,
     "tema": "esp32",
     "titulo": "Wi-Fi e Bluetooth integrados",
     "subtitulo": "A força do ESP32-S3",
-    "legenda": "O ESP32-S3 é um dos microcontroladores mais versáteis do mercado: dual-core, com Wi-Fi e Bluetooth integrados.\n\nNo DMK Smart Core, essa tecnologia vira automação prática para água, bombas, válvulas e muito mais."
+    "legenda": "📡 Wi-Fi e Bluetooth no mesmo chip.\n\nO ESP32-S3 é um dos microcontroladores mais versáteis do mercado. No DMK Smart Core, essa tecnologia vira automação prática para água, bombas, válvulas e muito mais.\n\n✅ Dual-core\n✅ Conectividade integrada\n✅ Compacto e eficiente"
   },
   {
     "id": 12,
     "tema": "local",
     "titulo": "Resposta imediata",
     "subtitulo": "Decisão no local, sem ida à nuvem",
-    "legenda": "Quando a decisão é tomada no próprio dispositivo, a resposta é imediata.\n\nO DMK Smart Core não precisa mandar dados para um servidor distante e esperar a volta: ele lê, decide e age ali mesmo."
+    "legenda": "⏱️ Decisão no local = resposta imediata.\n\nO DMK Smart Core não precisa mandar dados para um servidor distante e esperar a volta. Ele lê, decide e age ali mesmo, em instantes.\n\n✅ Sem atraso de nuvem\n✅ Ação na hora certa\n✅ Mais segurança para os equipamentos"
   },
   {
     "id": 13,
     "tema": "regras",
     "titulo": "Agende e esqueça",
     "subtitulo": "Rotinas por horário",
-    "legenda": "Rotinas que se repetem merecem ser automáticas.\n\nNo DMK Smart Core, você cria regras por horário para ligar, desligar e acionar equipamentos. Configure uma vez e deixe o Smart Core cuidar do resto."
+    "legenda": "🗓️ Configure uma vez e deixe o Smart Core cuidar do resto.\n\nRotinas que se repetem merecem ser automáticas. Crie regras por horário para ligar, desligar e acionar equipamentos todos os dias, sem esquecer nenhuma.\n\n✅ Rotinas automáticas\n✅ Horários personalizados\n✅ Ajuste fácil pelo app"
   },
   {
     "id": 14,
     "tema": "uso",
     "titulo": "Para sua casa",
     "subtitulo": "Automação residencial com propósito",
-    "legenda": "Na sua casa, o DMK Smart Core cuida da caixa d'água, da bomba, da irrigação do jardim e de outras rotinas.\n\nTecnologia que trabalha em silêncio para você ter mais conforto e tranquilidade."
+    "legenda": "🏡 Tecnologia que trabalha em silêncio na sua casa.\n\nO DMK Smart Core cuida da caixa d'água, da bomba, da irrigação do jardim e de outras rotinas, para você ter mais conforto e tranquilidade.\n\n✅ Automação residencial\n✅ Gestão de água\n✅ Controle pelo celular"
   },
   {
     "id": 15,
     "tema": "uso",
     "titulo": "Para o campo",
     "subtitulo": "Sítios, chácaras e propriedades rurais",
-    "legenda": "No campo, a internet nem sempre colabora. Por isso o funcionamento local faz tanta diferença.\n\nO DMK Smart Core automatiza bombas, reservatórios e irrigação na propriedade rural, mesmo onde a conexão é instável."
+    "legenda": "🌾 No campo, a internet nem sempre colabora. O DMK Smart Core, sim.\n\nEle automatiza bombas, reservatórios e irrigação na propriedade rural, mesmo onde a conexão é instável ou nem existe.\n\n✅ Ideal para sítios e chácaras\n✅ Funciona 100% local\n✅ Água no automático"
   },
   {
     "id": 16,
     "tema": "uso",
     "titulo": "Para empresas e condomínios",
     "subtitulo": "Controle de água em escala",
-    "legenda": "Em empresas e condomínios, falta d'água ou bomba parada viram problema para muita gente.\n\nO DMK Smart Core automatiza o controle de reservatórios e bombas, com regras claras e acompanhamento pelo aplicativo."
+    "legenda": "🏢 Empresas e condomínios não podem ficar sem água.\n\nO DMK Smart Core automatiza o controle de reservatórios e bombas, com regras claras e acompanhamento pelo aplicativo.\n\n✅ Menos falhas\n✅ Menos chamados de emergência\n✅ Mais controle da operação"
   },
   {
     "id": 17,
     "tema": "app",
     "titulo": "Configure sem complicação",
     "subtitulo": "Regras ajustadas pelo app",
-    "legenda": "Mudou a rotina? Ajuste a regra pelo aplicativo.\n\nNo DMK Smart Core, você altera horários, condições e ações de forma simples, sem precisar reprogramar nada."
+    "legenda": "🛠️ Mudou a rotina? Ajuste a regra pelo aplicativo.\n\nNo DMK Smart Core você altera horários, condições e ações em poucos toques, sem precisar reprogramar nada.\n\n✅ Simples de configurar\n✅ Mudanças na hora\n✅ Sem técnico para tudo"
   },
   {
     "id": 18,
     "tema": "agua",
     "titulo": "Água: cada gota conta",
     "subtitulo": "Automação contra o desperdício",
-    "legenda": "Transbordamento, irrigação fora de hora, bomba ligada sem necessidade: pequenos desperdícios que somam muito no fim do mês.\n\nO DMK Smart Core ajuda a usar a água com inteligência."
+    "legenda": "💧 Cada gota conta.\n\nTransbordamento, irrigação fora de hora, bomba ligada sem necessidade: pequenos desperdícios que pesam no fim do mês. O DMK Smart Core ajuda a usar a água com inteligência.\n\n✅ Menos desperdício\n✅ Conta mais leve\n✅ Consumo consciente"
   },
   {
     "id": 19,
     "tema": "regras",
     "titulo": "Regras que protegem",
     "subtitulo": "Ações automáticas quando algo foge do padrão",
-    "legenda": "Uma boa automação também protege.\n\nCom as regras do DMK Smart Core, você define o que deve acontecer quando uma condição sai do normal, como desligar a bomba se o reservatório estiver vazio."
+    "legenda": "🛡️ Uma boa automação também protege.\n\nCom as regras do DMK Smart Core, você define o que deve acontecer quando algo sai do normal, como desligar a bomba se o reservatório estiver vazio.\n\n✅ Proteção dos equipamentos\n✅ Ação automática\n✅ Mais tranquilidade"
   },
   {
     "id": 20,
     "tema": "como",
     "titulo": "Como funciona em 3 passos",
     "subtitulo": "Sensores, Smart Core e ação",
-    "legenda": "1. Os sensores informam o que está acontecendo.\n2. O DMK Smart Core, com ESP32-S3, aplica as suas regras.\n3. Bombas, válvulas e cargas são acionadas automaticamente.\n\nTudo no local, com acompanhamento pelo aplicativo."
+    "legenda": "🔁 Como o DMK Smart Core funciona, em 3 passos:\n\n1️⃣ Os sensores informam o que está acontecendo.\n2️⃣ O Smart Core, com ESP32-S3, aplica as suas regras.\n3️⃣ Bombas, válvulas e cargas são acionadas automaticamente.\n\nTudo no local, com acompanhamento pelo aplicativo."
   },
   {
     "id": 21,
     "tema": "mito",
     "titulo": "Automação precisa de nuvem?",
     "subtitulo": "Mito! O Smart Core funciona local",
-    "legenda": "Muita gente acha que automação só funciona conectada à nuvem. Não é verdade.\n\nO DMK Smart Core executa suas regras localmente, no ESP32-S3. Mais autonomia, mais confiabilidade."
+    "legenda": "❓ Mito ou verdade: automação só funciona conectada à nuvem?\n\n❌ MITO!\n\nO DMK Smart Core executa suas regras localmente, no ESP32-S3. A internet é um extra, não uma dependência.\n\n✅ Mais autonomia\n✅ Mais confiabilidade"
   },
   {
     "id": 22,
     "tema": "agua",
     "titulo": "Menos idas à caixa d'água",
     "subtitulo": "Mais tempo para o que importa",
-    "legenda": "Conferir nível, ligar bomba, desligar bomba, abrir registro... Quanto tempo isso toma da sua semana?\n\nCom o DMK Smart Core, essas tarefas viram automáticas."
+    "legenda": "⏳ Quanto tempo da sua semana vai para a caixa d'água?\n\nConferir nível, ligar bomba, desligar bomba, abrir registro... Com o DMK Smart Core, essas tarefas ficam automáticas e você ganha tempo para o que importa.\n\n✅ Menos tarefas manuais\n✅ Mais tempo livre\n✅ Tudo sob controle"
   },
   {
     "id": 23,
     "tema": "regras",
     "titulo": "Bomba ligada só quando precisa",
     "subtitulo": "Menos energia desperdiçada",
-    "legenda": "Bomba funcionando sem necessidade é energia jogada fora.\n\nAs regras do DMK Smart Core acionam a bomba somente quando ela é realmente necessária, de acordo com o nível e os horários que você define."
+    "legenda": "💡 Bomba ligada só quando precisa.\n\nBomba funcionando sem necessidade é energia jogada fora. As regras do DMK Smart Core acionam a bomba somente quando ela é realmente necessária.\n\n✅ Economia de energia\n✅ Nível e horário sob controle\n✅ Equipamento preservado"
   },
   {
     "id": 24,
     "tema": "local",
     "titulo": "Funciona na sua rede local",
     "subtitulo": "Conectado, mas independente",
-    "legenda": "O DMK Smart Core se conecta à sua rede Wi-Fi local para conversar com o aplicativo, mas não depende da internet para executar as regras.\n\nO melhor dos dois mundos: praticidade e autonomia."
+    "legenda": "🌐 Conectado, mas independente.\n\nO DMK Smart Core usa a sua rede Wi-Fi local para conversar com o aplicativo, mas não depende da internet para executar as regras.\n\n✅ Praticidade do app\n✅ Autonomia do processamento local\n✅ O melhor dos dois mundos"
   },
   {
     "id": 25,
     "tema": "pergunta",
     "titulo": "Quanto tempo você gasta com a água?",
     "subtitulo": "Conta pra gente nos comentários",
-    "legenda": "Caixa d'água, bomba, irrigação, registro... Quanto tempo por semana você gasta cuidando disso?\n\nConta pra gente nos comentários. O DMK Smart Core existe justamente para devolver esse tempo para você."
+    "legenda": "💬 Pergunta do dia: quanto tempo você gasta cuidando da água?\n\nCaixa d'água, bomba, irrigação, registro... Conta pra gente nos comentários! 👇\n\nO DMK Smart Core existe justamente para devolver esse tempo para você."
   },
   {
     "id": 26,
     "tema": "esp32",
     "titulo": "Tecnologia robusta e compacta",
     "subtitulo": "ESP32-S3 no centro de tudo",
-    "legenda": "Compacto por fora, potente por dentro.\n\nO DMK Smart Core usa o ESP32-S3 para reunir leitura de sensores, regras e acionamentos em um único sistema de automação."
+    "legenda": "🔧 Compacto por fora, potente por dentro.\n\nO DMK Smart Core usa o ESP32-S3 para reunir leitura de sensores, regras e acionamentos em um único sistema de automação.\n\n✅ Tudo integrado\n✅ Instalação organizada\n✅ Pronto para crescer com você"
   },
   {
     "id": 27,
     "tema": "app",
     "titulo": "Acompanhe em tempo real",
     "subtitulo": "Status dos equipamentos no app",
-    "legenda": "Bomba ligada? Reservatório cheio? Válvula aberta?\n\nNo aplicativo do DMK Smart Core, você acompanha o status dos seus equipamentos e sabe o que está acontecendo na sua automação."
+    "legenda": "👀 Bomba ligada? Reservatório cheio? Válvula aberta?\n\nNo aplicativo do DMK Smart Core você acompanha o status dos equipamentos e sabe exatamente o que está acontecendo na sua automação.\n\n✅ Status em tempo real\n✅ Informação clara\n✅ Decisões mais rápidas"
   },
   {
     "id": 28,
     "tema": "uso",
     "titulo": "Automação sob medida",
     "subtitulo": "Do jeito que o seu projeto precisa",
-    "legenda": "Cada casa, sítio ou empresa tem uma rotina diferente.\n\nCom as regras configuráveis do DMK Smart Core, a automação se adapta ao seu projeto, e não o contrário."
+    "legenda": "📐 Cada projeto tem a sua rotina. A automação se adapta a ela.\n\nCasa, sítio ou empresa: com as regras configuráveis do DMK Smart Core, a automação segue o seu jeito de trabalhar, e não o contrário.\n\n✅ Sob medida\n✅ Flexível\n✅ Fácil de ajustar"
   },
   {
     "id": 29,
     "tema": "resumo",
     "titulo": "Tudo o que o Smart Core faz",
     "subtitulo": "ESP32-S3 • Local • App • Regras • Água",
-    "legenda": "Resumo do DMK Smart Core:\n\n• Automação com ESP32-S3\n• Funcionamento local, sem depender da internet\n• Aplicativo para acompanhar e configurar\n• Regras inteligentes\n• Gestão de água: reservatórios, bombas e irrigação"
+    "legenda": "📋 Tudo o que o DMK Smart Core faz, num só lugar:\n\n🧠 Automação com ESP32-S3\n📶 Funcionamento local, sem depender da internet\n📱 Aplicativo para acompanhar e configurar\n⚙️ Regras inteligentes\n💧 Gestão de água: reservatórios, bombas e irrigação\n\nSalve este post para consultar depois! 📌"
   },
   {
     "id": 30,
     "tema": "cta",
     "titulo": "Peça uma demonstração",
     "subtitulo": "Veja o DMK Smart Core funcionando",
-    "legenda": "Quer ver na prática como o DMK Smart Core automatiza a gestão de água com regras inteligentes, funcionando mesmo sem internet?\n\nMande uma mensagem no direct e agende uma demonstração."
+    "legenda": "🎯 Quer ver o DMK Smart Core funcionando na prática?\n\nMostramos como ele automatiza a gestão de água com regras inteligentes, funcionando mesmo sem internet.\n\n💬 Mande uma mensagem no direct e agende sua demonstração!"
   }
 ]

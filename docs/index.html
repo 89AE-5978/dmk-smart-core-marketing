@@ -1,6 +1,316 @@
 <!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><title>DMK Smart Core</title></head>
-<body style="font-family:sans-serif;background:#0A1522;color:#fff;padding:40px">
-<h1>DMK Smart Core</h1>
-<p>Automação com ESP32-S3, funcionamento local sem internet, aplicativo, regras inteligentes e gestão de água.</p>
-</body></html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DMK Smart Core — Automação com ESP32-S3 que funciona sem internet</title>
+<meta name="description" content="DMK Smart Core: automação com ESP32-S3, funcionamento local sem internet, aplicativo, regras inteligentes e gestão de água.">
+<meta property="og:title" content="DMK Smart Core">
+<meta property="og:description" content="Sua água no automático. Mesmo sem internet.">
+<meta property="og:image" content="assets/danilo-avatar.jpg">
+<meta name="theme-color" content="#0A1522">
+<style>
+  :root{
+    --navy:#0A1522; --navy2:#0F2C44; --card:#12304A; --line:#22476A;
+    --cyan:#29B6F6; --green:#2ECC71; --amber:#F5A623; --violet:#A78BFA; --red:#FF6B6B;
+    --text:#FFFFFF; --muted:#B8C7D6; --radius:22px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:clip}
+  body{
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+    color:var(--text); line-height:1.6;
+    background:
+      radial-gradient(900px 600px at 85% -5%, rgba(41,182,246,.20), transparent 60%),
+      radial-gradient(700px 500px at -10% 35%, rgba(46,204,113,.10), transparent 60%),
+      linear-gradient(180deg, var(--navy) 0%, var(--navy2) 100%);
+    background-attachment:fixed; min-height:100vh;
+  }
+  body::before{ /* malha de circuito sutil */
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:-1;
+    background-image:
+      linear-gradient(rgba(41,182,246,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(41,182,246,.05) 1px, transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse at 50% 20%, #000 30%, transparent 75%);
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1160px, 92vw); margin:0 auto}
+  section{padding:88px 0}
+  h1,h2,h3{line-height:1.12; letter-spacing:-.02em}
+  h2{font-size:clamp(30px,4vw,44px); margin-bottom:14px}
+  .lead{color:var(--muted); font-size:clamp(17px,1.6vw,20px); max-width:640px}
+  .eyebrow{display:inline-flex; align-items:center; gap:8px; font-weight:700; font-size:13px;
+    letter-spacing:.12em; text-transform:uppercase; color:var(--cyan); margin-bottom:14px}
+  .eyebrow::before{content:""; width:10px; height:22px; background:var(--cyan); border-radius:2px}
+
+  /* Navegação */
+  nav{position:sticky; top:0; z-index:10; backdrop-filter:blur(14px);
+    background:rgba(10,21,34,.72); border-bottom:1px solid rgba(41,182,246,.15)}
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:68px}
+  .logo{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.04em}
+  .logo i{width:10px; height:30px; background:var(--cyan); border-radius:2px}
+  .menu{display:flex; gap:28px; color:var(--muted); font-weight:600; font-size:15px}
+  .menu a:hover{color:var(--text)}
+  .btn{display:inline-flex; align-items:center; gap:10px; padding:14px 26px; border-radius:999px;
+    font-weight:700; transition:transform .15s, box-shadow .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--cyan); color:var(--navy); box-shadow:0 10px 30px rgba(41,182,246,.35)}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,.25)}
+  .btn-sm{padding:10px 18px; font-size:14px}
+
+  /* Hero */
+  .hero{padding:72px 0 64px}
+  .hero .wrap{display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center}
+  .hero h1{font-size:clamp(40px,5.6vw,68px); margin:6px 0 20px}
+  .hero h1 span{background:linear-gradient(90deg,var(--cyan),#7FE0FF); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .cta{display:flex; flex-wrap:wrap; gap:14px; margin:32px 0 28px}
+  .chips{display:flex; flex-wrap:wrap; gap:10px}
+  .chip{padding:7px 16px; border-radius:999px; border:2px solid; font-weight:700; font-size:14px; background:rgba(16,38,58,.8)}
+  .photo{position:relative}
+  .photo img{width:100%; border-radius:28px; border:3px solid var(--cyan); display:block;
+    box-shadow:0 0 0 8px rgba(41,182,246,.08), 0 30px 80px rgba(0,0,0,.5), 0 0 60px rgba(41,182,246,.25)}
+  .float{position:absolute; display:flex; align-items:center; gap:10px; padding:12px 16px; border-radius:16px;
+    background:rgba(10,21,34,.88); border:1px solid rgba(41,182,246,.4); backdrop-filter:blur(8px);
+    font-weight:700; font-size:14px; box-shadow:0 12px 30px rgba(0,0,0,.35)}
+  .float small{display:block; color:var(--muted); font-weight:600; font-size:12px}
+  .dot{width:12px; height:12px; border-radius:50%; background:var(--green); box-shadow:0 0 12px var(--green)}
+  .f1{left:-26px; top:14%} .f2{right:-20px; bottom:12%}
+
+  /* Recursos */
+  .grid5{display:grid; grid-template-columns:repeat(5,1fr); gap:18px; margin-top:42px}
+  .card{background:linear-gradient(180deg, rgba(18,48,74,.9), rgba(13,34,54,.9)); border:1px solid var(--line);
+    border-radius:var(--radius); padding:26px 22px; transition:transform .2s, border-color .2s}
+  .card:hover{transform:translateY(-4px); border-color:var(--cyan)}
+  .icon{width:52px; height:52px; border-radius:14px; display:grid; place-items:center; margin-bottom:18px}
+  .icon svg{width:28px; height:28px}
+  .card h3{font-size:19px; margin-bottom:8px}
+  .card p{color:var(--muted); font-size:15px}
+
+  /* Como funciona */
+  .flow{display:grid; grid-template-columns:1fr auto 1fr auto 1fr; align-items:center; gap:18px; margin-top:44px}
+  .step{text-align:center; padding:30px 22px}
+  .num{width:46px; height:46px; margin:0 auto 14px; border-radius:50%; display:grid; place-items:center;
+    background:var(--cyan); color:var(--navy); font-weight:800; font-size:20px}
+  .arrow{color:var(--cyan); font-size:34px; font-weight:800}
+  .offline{margin-top:28px; display:flex; gap:16px; align-items:center; justify-content:center; flex-wrap:wrap;
+    padding:18px 24px; border-radius:18px; border:1.5px dashed rgba(46,204,113,.6); background:rgba(46,204,113,.07);
+    color:#C9F5DA; font-weight:600; text-align:center}
+
+  /* App */
+  .split{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center}
+  .phone{width:min(340px,100%); margin:0 auto; padding:18px; border-radius:44px; background:#0B1B2C;
+    border:2px solid var(--cyan); box-shadow:0 0 50px rgba(41,182,246,.25), 0 30px 70px rgba(0,0,0,.5)}
+  .screen{border-radius:30px; background:linear-gradient(180deg,#12304A,#0D2236); padding:24px 20px}
+  .screen h4{font-size:17px} .screen .status{color:var(--green); font-size:13px; font-weight:600; margin-bottom:18px}
+  .tank{display:flex; gap:18px; align-items:center; margin:8px 0 20px}
+  .tank .box{width:92px; height:132px; border:3px solid var(--cyan); border-radius:16px; position:relative; overflow:hidden; background:#0A1C2E}
+  .tank .water{position:absolute; left:0; right:0; bottom:0; height:72%; background:linear-gradient(180deg,#7FD6FF 0 8%,#2996DC 8%)}
+  .tank b{font-size:44px; line-height:1}
+  .row{display:flex; justify-content:space-between; align-items:center; padding:14px 0; border-top:1px solid var(--line); font-weight:700}
+  .switch{width:58px; height:32px; border-radius:99px; background:var(--green); position:relative}
+  .switch::after{content:""; position:absolute; right:4px; top:4px; width:24px; height:24px; border-radius:50%; background:#fff}
+  .rule{margin-top:10px; padding:14px 16px; border-radius:14px; border:2px solid var(--amber); font-weight:700; font-size:15px}
+  .rule span{color:var(--amber)}
+  ul.check{list-style:none; margin-top:24px; display:grid; gap:14px}
+  ul.check li{display:flex; gap:12px; align-items:flex-start; color:var(--muted)}
+  ul.check li::before{content:"✓"; flex:none; width:26px; height:26px; border-radius:50%; display:grid; place-items:center;
+    background:var(--cyan); color:var(--navy); font-weight:900; font-size:14px; margin-top:1px}
+  ul.check b{color:var(--text)}
+
+  /* Aplicações */
+  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:42px}
+  .use{padding:32px 28px}
+  .use .emoji{font-size:38px; margin-bottom:12px}
+
+  /* Instagram */
+  .gallery{display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-top:38px}
+  .gallery img{width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:14px; border:1px solid var(--line); transition:transform .2s}
+  .gallery a:hover img{transform:scale(1.03); border-color:var(--cyan)}
+
+  /* CTA final */
+  .final{text-align:center; border-radius:32px; padding:64px 28px;
+    background:radial-gradient(600px 300px at 50% 0%, rgba(41,182,246,.25), transparent 70%), linear-gradient(180deg,#12304A,#0D2236);
+    border:1px solid rgba(41,182,246,.35)}
+  .final .lead{margin:0 auto 30px}
+  footer{padding:36px 0 48px; color:var(--muted); font-size:14px; text-align:center}
+
+  @media (max-width:980px){
+    .hero .wrap,.split{grid-template-columns:1fr}
+    .grid5{grid-template-columns:repeat(2,1fr)}
+    .grid3{grid-template-columns:1fr}
+    .flow{grid-template-columns:1fr} .arrow{transform:rotate(90deg); text-align:center}
+    .gallery{grid-template-columns:repeat(3,1fr)}
+    .menu{display:none}
+    .f1{left:8px} .f2{right:8px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#"><i></i>DMK SMART CORE</a>
+    <div class="menu">
+      <a href="#recursos">Recursos</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#app">Aplicativo</a>
+      <a href="#aplicacoes">Aplicações</a>
+    </div>
+    <a class="btn btn-primary btn-sm" href="https://www.instagram.com/dmksmartcore/" target="_blank" rel="noopener">@dmksmartcore</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Automação com ESP32-S3</div>
+      <h1>Sua água no automático. <span>Mesmo sem internet.</span></h1>
+      <p class="lead">O DMK Smart Core controla caixa d'água, bomba e irrigação com regras inteligentes que rodam no próprio dispositivo. Você acompanha tudo pelo aplicativo.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://www.instagram.com/dmksmartcore/" target="_blank" rel="noopener">💬 Fale com a DMK</a>
+        <a class="btn btn-ghost" href="#como-funciona">Como funciona →</a>
+      </div>
+      <div class="chips">
+        <span class="chip" style="border-color:var(--red)">ESP32-S3</span>
+        <span class="chip" style="border-color:var(--green)">Sem internet</span>
+        <span class="chip" style="border-color:var(--violet)">Aplicativo</span>
+        <span class="chip" style="border-color:var(--amber)">Regras inteligentes</span>
+        <span class="chip" style="border-color:var(--cyan)">Gestão de água</span>
+      </div>
+    </div>
+    <div class="photo">
+      <img src="assets/danilo-avatar.jpg" alt="Danilo, da DMK Soluções Smart, apresentando o aplicativo do DMK Smart Core" width="800" height="999">
+      <div class="float f1"><span class="dot"></span><div>Funcionando local<small>sem depender da nuvem</small></div></div>
+      <div class="float f2">💧<div>Caixa d'água 72%<small>bomba no automático</small></div></div>
+    </div>
+  </div>
+</header>
+
+<section id="recursos">
+  <div class="wrap">
+    <div class="eyebrow">Recursos</div>
+    <h2>Tudo o que a sua automação precisa</h2>
+    <p class="lead">Um sistema completo, pensado para funcionar com confiança no dia a dia.</p>
+    <div class="grid5">
+      <div class="card">
+        <div class="icon" style="background:rgba(255,107,107,.15);color:var(--red)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg>
+        </div>
+        <h3>ESP32-S3</h3><p>Processador dual-core com Wi-Fi e Bluetooth no centro de tudo.</p>
+      </div>
+      <div class="card">
+        <div class="icon" style="background:rgba(46,204,113,.15);color:var(--green)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 2l20 20M8.5 16.5a5 5 0 0 1 7 0M5 13a10 10 0 0 1 5.2-2.8M19 13a10 10 0 0 0-2.2-1.6M2 8.8a15 15 0 0 1 4.2-2.6M22 8.8A15 15 0 0 0 11 5"/><circle cx="12" cy="20" r="1"/></svg>
+        </div>
+        <h3>Sem internet</h3><p>As regras rodam localmente. A conexão caiu? A automação continua.</p>
+      </div>
+      <div class="card">
+        <div class="icon" style="background:rgba(167,139,250,.15);color:var(--violet)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+        </div>
+        <h3>Aplicativo</h3><p>Acompanhe o status, acione equipamentos e ajuste regras na hora.</p>
+      </div>
+      <div class="card">
+        <div class="icon" style="background:rgba(245,166,35,.15);color:var(--amber)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h10M4 12h6M4 18h10"/><path d="M16 9l4 3-4 3"/></svg>
+        </div>
+        <h3>Regras inteligentes</h3><p>Se isso acontecer, faça aquilo. Você define, o Smart Core executa.</p>
+      </div>
+      <div class="card">
+        <div class="icon" style="background:rgba(41,182,246,.15);color:var(--cyan)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.5S5 10 5 14.5a7 7 0 0 0 14 0C19 10 12 2.5 12 2.5z"/></svg>
+        </div>
+        <h3>Gestão de água</h3><p>Reservatórios, bombas e irrigação no automático, sem desperdício.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona">
+  <div class="wrap">
+    <div class="eyebrow">Como funciona</div>
+    <h2>Simples, rápido e no local</h2>
+    <p class="lead">A decisão acontece no próprio dispositivo, sem ida e volta à nuvem.</p>
+    <div class="flow">
+      <div class="card step"><div class="num">1</div><h3>Sensores</h3><p style="color:var(--muted)">Informam o nível da caixa e o que está acontecendo.</p></div>
+      <div class="arrow">→</div>
+      <div class="card step"><div class="num">2</div><h3>DMK Smart Core</h3><p style="color:var(--muted)">O ESP32-S3 aplica as suas regras em instantes.</p></div>
+      <div class="arrow">→</div>
+      <div class="card step"><div class="num">3</div><h3>Ação</h3><p style="color:var(--muted)">Bombas, válvulas e cargas são acionadas sozinhas.</p></div>
+    </div>
+    <div class="offline"><span class="dot"></span> Internet fora do ar? Os passos 1, 2 e 3 continuam funcionando normalmente.</div>
+  </div>
+</section>
+
+<section id="app">
+  <div class="wrap split">
+    <div class="phone">
+      <div class="screen">
+        <h4>App DMK Smart Core</h4>
+        <div class="status">● Funcionando sem internet</div>
+        <div class="tank"><div class="box"><div class="water"></div></div><div><b>72%</b><div style="color:var(--muted)">Caixa d'água</div></div></div>
+        <div class="row">Bomba ligada <span class="switch"></span></div>
+        <div class="rule">SE nível &lt; 30%<br><span>→ LIGA a bomba</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow">Aplicativo</div>
+      <h2>Controle na palma da mão</h2>
+      <p class="lead">Veja o que está acontecendo e ajuste a automação em poucos toques.</p>
+      <ul class="check">
+        <li><div><b>Nível da caixa d'água</b> acompanhado em tempo real.</div></li>
+        <li><div><b>Bomba e válvulas</b> acionadas com um toque ou no automático.</div></li>
+        <li><div><b>Regras por nível e horário</b> criadas sem reprogramar nada.</div></li>
+        <li><div><b>Rede local</b>: o app conversa com o Smart Core pelo seu Wi-Fi.</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="aplicacoes">
+  <div class="wrap">
+    <div class="eyebrow">Aplicações</div>
+    <h2>Para cada rotina, uma automação</h2>
+    <div class="grid3">
+      <div class="card use"><div class="emoji">🏡</div><h3>Residências</h3><p style="color:var(--muted)">Caixa d'água, bomba e irrigação do jardim cuidando de si mesmas.</p></div>
+      <div class="card use"><div class="emoji">🌾</div><h3>Sítios e chácaras</h3><p style="color:var(--muted)">Automação que funciona mesmo onde a internet é instável ou não existe.</p></div>
+      <div class="card use"><div class="emoji">🏢</div><h3>Empresas e condomínios</h3><p style="color:var(--muted)">Controle de reservatórios e bombas com regras claras e menos falhas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="instagram">
+  <div class="wrap">
+    <div class="eyebrow">Instagram</div>
+    <h2>Acompanhe a DMK</h2>
+    <p class="lead">Dicas, novidades e o DMK Smart Core em ação todos os dias às 8h.</p>
+    <div class="gallery">
+      <a href="https://www.instagram.com/dmksmartcore/" target="_blank" rel="noopener"><img src="images/post-02.jpg" alt="Funciona mesmo sem internet" loading="lazy"></a>
+      <a href="https://www.instagram.com/dmksmartcore/" target="_blank" rel="noopener"><img src="images/post-04.jpg" alt="Regras inteligentes" loading="lazy"></a>
+      <a href="https://www.instagram.com/dmksmartcore/" target="_blank" rel="noopener"><img src="images/post-05.jpg" alt="Gestão de água" loading="lazy"></a>
+      <a href="https://www.instagram.com/dmksmartcore/" target="_blank" rel="noopener"><img src="images/post-03.jpg" alt="Aplicativo" loading="lazy"></a>
+      <a href="https://www.instagram.com/dmksmartcore/" target="_blank" rel="noopener"><img src="images/post-01.jpg" alt="ESP32-S3" loading="lazy"></a>
+      <a href="https://www.instagram.com/dmksmartcore/" target="_blank" rel="noopener"><img src="images/post-20.jpg" alt="Como funciona" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="final">
+      <div class="eyebrow" style="justify-content:center">Demonstração</div>
+      <h2>Quer ver o DMK Smart Core funcionando?</h2>
+      <p class="lead">Chame a gente no direct e agende uma demonstração.</p>
+      <a class="btn btn-primary" href="https://www.instagram.com/dmksmartcore/" target="_blank" rel="noopener">💬 Falar no Instagram</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 DMK Soluções Smart · DMK Smart Core · <a href="https://www.instagram.com/dmksmartcore/" target="_blank" rel="noopener" style="color:var(--cyan)">@dmksmartcore</a></div>
+</footer>
+
+</body>
+</html>
