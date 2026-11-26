@@ -1,0 +1,73 @@
+name: Publicar no Instagram
+
+on:
+  schedule:
+    # 11:00 UTC = 08:00 em Brasília (sem horário de verão desde 2019).
+    # O GitHub pode atrasar execuções agendadas em alguns minutos.
+    - cron: "0 11 * * *"
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: "simular = só mostra | validar = testa a API real sem publicar | publicar = publica (exige PUBLICACAO_ATIVA=true)"
+        type: choice
+        options: [simular, validar, publicar]
+        default: simular
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publicar-instagram
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Trava de segurança: só publica de verdade se a variável do repositório
+      # PUBLICACAO_ATIVA for "true". Caso contrário, apenas simula.
+      - name: Definir modo
+        id: modo
+        env:
+          ATIVA: ${{ vars.PUBLICACAO_ATIVA }}
+          EVENTO: ${{ github.event_name }}
+          MODO_MANUAL: ${{ inputs.modo }}
+        run: |
+          if [ "$EVENTO" = "workflow_dispatch" ] && [ "$MODO_MANUAL" = "validar" ]; then
+            echo "args=--validar" >> "$GITHUB_OUTPUT"
+            echo "Modo: VALIDAR (testa a API, não publica)"
+          elif [ "$ATIVA" = "true" ] && { [ "$EVENTO" = "schedule" ] || [ "$MODO_MANUAL" = "publicar" ]; }; then
+            echo "args=" >> "$GITHUB_OUTPUT"
+            echo "Modo: PUBLICAR"
+          else
+            echo "args=--simular" >> "$GITHUB_OUTPUT"
+            echo "Modo: SIMULAÇÃO (PUBLICACAO_ATIVA=$ATIVA, evento=$EVENTO)"
+          fi
+
+      - name: Publicar post do dia
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          PAGES_BASE_URL: ${{ vars.PAGES_BASE_URL }}
+          GRAPH_HOST: ${{ vars.GRAPH_HOST }}
+          GRAPH_API_VERSION: ${{ vars.GRAPH_API_VERSION }}
+        run: python scripts/publicar.py ${{ steps.modo.outputs.args }}
+
+      # Registrar o histórico também mantém o repositório ativo: o GitHub
+      # desativa agendamentos de repositórios sem atividade por 60 dias.
+      - name: Salvar histórico
+        run: |
+          if [ -n "$(git status --porcelain historico)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add historico
+            git commit -m "Histórico: publicação de $(TZ=America/Sao_Paulo date +%F)"
+            git push
+          fi

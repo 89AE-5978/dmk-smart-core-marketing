@@ -1,0 +1,19 @@
+{
+  "conta_instagram": "dmksmartcore",
+  "data_inicio": "2026-12-01",
+  "fuso_utc_horas": -3,
+  "pasta_imagens_publica": "images",
+  "hashtags": [
+    "#DMKSmartCore",
+    "#automacao",
+    "#automacaoresidencial",
+    "#casainteligente",
+    "#ESP32",
+    "#ESP32S3",
+    "#IoT",
+    "#gestaodeagua",
+    "#economiadeagua",
+    "#tecnologia"
+  ],
+  "chamada_padrao": "Quer o DMK Smart Core no seu projeto? Chame a gente no direct."
+}
